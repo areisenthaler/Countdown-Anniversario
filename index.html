@@ -57,11 +57,24 @@
                 opacity: 1;
             }
         }
+
+        /* Aggiungi un media query per dispositivi mobili */
+        @media screen and (max-width: 600px) {
+            #countdown {
+                font-size: 5vw; /* Aumenta la dimensione del countdown sui dispositivi mobili */
+            }
+            h1 {
+                font-size: 6vw; /* Aumenta la dimensione dell'intestazione sui dispositivi mobili */
+            }
+            .countdown-item {
+                margin: 0 5vw; /* Diminuisci la distanza tra gli elementi sui dispositivi mobili */
+            }
+        }
     </style>
 </head>
 <body>
     <div>
-        <h1>Il nostro giorno speciale sta arrivando!❤️</h1>
+        <h1>Il nostro giorno speciale sta arrivando! ❤️</h1>
         <div id="countdown">
             <div class="countdown-item">
                 <div class="countdown-number" id="days"></div>
@@ -86,8 +99,8 @@
     <script>
         function aggiornaCountdown() {
             // La data del tuo anniversario (Anno, Mese - 1, Giorno, Ora, Minuti, Secondi)
-            let dataAnniversario = new Date(2025, 2, 28, 16, 45, 0).getTime();
-            
+            let dataAnniversario = new Date(2025, 2, 28, 16, 45, 0).getTime(); // La tua data
+
             let ora = new Date().getTime();
             let tempoRimanente = dataAnniversario - ora;
 
@@ -114,6 +127,3 @@
     </script>
 </body>
 </html>
-
-
-
