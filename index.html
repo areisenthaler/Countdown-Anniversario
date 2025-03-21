@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Countdown per Noi</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f8f9fa;
+            padding: 50px;
+        }
+        #countdown {
+            font-size: 2em;
+            color: #ff4d6d;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tempo alla Nostra Data Speciale ❤️</h1>
+    <div id="countdown"></div>
+
+    <script>
+        function aggiornaCountdown() {
+            // Inserisci la data del tuo anniversario (Anno, Mese -1, Giorno, Ora, Minuti, Secondi)
+            let dataAnniversario = new Date(2025, 2, 28, 16, 45, 0).getTime();
+
+            let ora = new Date().getTime();
+            let tempoRimanente = dataAnniversario - ora;
+
+            if (tempoRimanente > 0) {
+                let giorni = Math.floor(tempoRimanente / (1000 * 60 * 60 * 24));
+                let ore = Math.floor((tempoRimanente % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minuti = Math.floor((tempoRimanente % (1000 * 60 * 60)) / (1000 * 60));
+                let secondi = Math.floor((tempoRimanente % (1000 * 60)) / 1000);
+
+                document.getElementById("countdown").innerHTML =
+                    giorni + " giorni " + ore + " ore " + minuti + " min " + secondi + " sec ";
+            } else {
+                document.getElementById("countdown").innerHTML = "È ARRIVATO IL GIORNO SPECIALE! 🎉❤️";
+            }
+        }
+
+        // Aggiorna ogni secondo
+        setInterval(aggiornaCountdown, 1000);
+        aggiornaCountdown();
+    </script>
+</body>
+</html>
