@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Countdown per Noi</title>
+    <title>Il Nostra Countdown</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            background: linear-gradient(135deg, #2196F3, #FF4081); /* Gradiente dal blu al rosa */
             color: #fff;
             display: flex;
             justify-content: center;
@@ -35,14 +35,19 @@
             margin: 0 10px;
         }
         .countdown-number {
-            font-size: 2em;
+            font-size: 1.5em; /* Scritta più piccola */
             font-weight: bold;
-            color: #ffeb3b;
+            color: #FFEB3B;
         }
         .countdown-label {
-            font-size: 1.2em;
+            font-size: 1em; /* Scritta più piccola */
             color: #fff;
             text-transform: uppercase;
+        }
+        .heart {
+            font-size: 2.5em;
+            color: red;
+            margin-top: 20px;
         }
         @keyframes fadeIn {
             from {
@@ -56,7 +61,7 @@
 </head>
 <body>
     <div>
-        <h1>Il nostro giorno speciale sta arrivando!</h1>
+        <h1>Il nostro giorno speciale sta arrivando!❤️</h1>
         <div id="countdown">
             <div class="countdown-item">
                 <div class="countdown-number" id="days"></div>
@@ -75,6 +80,7 @@
                 <div class="countdown-label">Secondi</div>
             </div>
         </div>
+        <div id="message"></div> <!-- Il messaggio del cuore -->
     </div>
 
     <script>
@@ -95,8 +101,10 @@
                 document.getElementById("hours").innerHTML = ore;
                 document.getElementById("minutes").innerHTML = minuti;
                 document.getElementById("seconds").innerHTML = secondi;
+                document.getElementById("message").innerHTML = ""; // Rimuove il messaggio quando il countdown è attivo
             } else {
-                document.getElementById("countdown").innerHTML = "È ARRIVATO IL GIORNO SPECIALE! 🎉❤️";
+                document.getElementById("countdown").innerHTML = "È ARRIVATO IL GIORNO SPECIALE!"; // Cambia il testo
+                document.getElementById("message").innerHTML = "1 ANNO INSIEME! ❤️"; // Aggiungi il messaggio con cuore
             }
         }
 
@@ -106,4 +114,5 @@
     </script>
 </body>
 </html>
+
 
