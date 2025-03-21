@@ -6,27 +6,82 @@
     <title>Countdown per Noi</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
             text-align: center;
-            background-color: #f8f9fa;
-            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
         }
         #countdown {
-            font-size: 2em;
-            color: #ff4d6d;
+            font-size: 3em;
             font-weight: bold;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: inline-block;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+            animation: fadeIn 1s ease-in-out;
+        }
+        .countdown-item {
+            display: inline-block;
+            margin: 0 10px;
+        }
+        .countdown-number {
+            font-size: 2em;
+            font-weight: bold;
+            color: #ffeb3b;
+        }
+        .countdown-label {
+            font-size: 1.2em;
+            color: #fff;
+            text-transform: uppercase;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
         }
     </style>
 </head>
 <body>
-    <h1>Tempo alla Nostra Data Speciale ❤️</h1>
-    <div id="countdown"></div>
+    <div>
+        <h1>Il nostro giorno speciale sta arrivando!</h1>
+        <div id="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days"></div>
+                <div class="countdown-label">Giorni</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours"></div>
+                <div class="countdown-label">Ore</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes"></div>
+                <div class="countdown-label">Minuti</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds"></div>
+                <div class="countdown-label">Secondi</div>
+            </div>
+        </div>
+    </div>
 
     <script>
         function aggiornaCountdown() {
-            // Inserisci la data del tuo anniversario (Anno, Mese -1, Giorno, Ora, Minuti, Secondi)
+            // La data del tuo anniversario (Anno, Mese - 1, Giorno, Ora, Minuti, Secondi)
             let dataAnniversario = new Date(2025, 2, 28, 16, 45, 0).getTime();
-
+            
             let ora = new Date().getTime();
             let tempoRimanente = dataAnniversario - ora;
 
@@ -36,8 +91,10 @@
                 let minuti = Math.floor((tempoRimanente % (1000 * 60 * 60)) / (1000 * 60));
                 let secondi = Math.floor((tempoRimanente % (1000 * 60)) / 1000);
 
-                document.getElementById("countdown").innerHTML =
-                    giorni + " giorni " + ore + " ore " + minuti + " min " + secondi + " sec ";
+                document.getElementById("days").innerHTML = giorni;
+                document.getElementById("hours").innerHTML = ore;
+                document.getElementById("minutes").innerHTML = minuti;
+                document.getElementById("seconds").innerHTML = secondi;
             } else {
                 document.getElementById("countdown").innerHTML = "È ARRIVATO IL GIORNO SPECIALE! 🎉❤️";
             }
@@ -49,3 +106,4 @@
     </script>
 </body>
 </html>
+
